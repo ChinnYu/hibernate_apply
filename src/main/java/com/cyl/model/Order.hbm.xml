@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cyl.model">
+    <class name="Order" table="t_order">
+        <!--主鍵用id標籤來描述-->
+        <id name="id" column="id">
+            <!--native 會根據實際的數據庫來採用具體的主键生成策略-->
+            <generator class="native"/>
+        </id>
+        <!--其他普通的行用property來描述-->
+        <property name="orderNo" type="string" column="order_no"/>
+        <property name="orderMoney" type="int" column="order_money"/>
+    </class>
+</hibernate-mapping>

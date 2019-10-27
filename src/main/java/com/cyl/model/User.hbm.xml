@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cyl.model">
+    <class name="User" table="t_user">
+        <!--主鍵用id標籤來描述-->
+        <id name="id" column="id">
+            <!--native 會根據實際的數據庫來採用具體的主键生成策略-->
+            <generator class="native"/>
+        </id>
+        <!--其他普通的行用property來描述-->
+        <!--1.簡化,名稱相同,可以不寫-->
+        <property name="birthday" type="timestamp"/>
+        <!--2.簡化,名稱相同,可以不寫 ,type也可以不寫 會自動識別-->
+        <property name="username"/>
+        <!--3.原始寫法-->
+        <property name="password" type="string" column="password"/>
+    </class>
+</hibernate-mapping>
