@@ -11,6 +11,16 @@ public class Order {
     private int id;
     private String orderNo;
     private int orderMoney;
+    //這個訂單屬於哪個用戶
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;

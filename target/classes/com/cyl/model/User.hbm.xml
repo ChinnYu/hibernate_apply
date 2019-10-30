@@ -17,5 +17,15 @@
         <property name="username"/>
         <!--3.原始寫法-->
         <property name="password" type="string" column="password"/>
+        <!--建立一對多的關係-->
+        <!--默認兩者的關係由一的一方來為護-->
+        <!--改變,讓多的一方來維護這個關係-->
+        <!--inverse 反轉 默認false-->
+        <!--cascade="save-update,delete" 會將關聯數據一併刪除-->
+        <set name="orders" inverse="true" cascade="save-update,delete">
+            <!--設置外鍵-->
+            <key column="user_id"></key>
+            <one-to-many class="Order"/>
+        </set>
     </class>
 </hibernate-mapping>

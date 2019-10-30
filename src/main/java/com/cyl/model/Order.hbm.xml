@@ -13,5 +13,7 @@
         <!--其他普通的行用property來描述-->
         <property name="orderNo" type="string" column="order_no"/>
         <property name="orderMoney" type="int" column="order_money"/>
+        <!--建立多對一的關係-->
+        <many-to-one name="user" class="User" column="user_id"></many-to-one>
     </class>
 </hibernate-mapping>

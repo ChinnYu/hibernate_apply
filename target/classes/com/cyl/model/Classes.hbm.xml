@@ -4,16 +4,20 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.cyl.model">
-    <class name="Order" table="t_order">
+    <class name="Classes" table="t_classes">
         <!--主鍵用id標籤來描述-->
         <id name="id" column="id">
             <!--native 會根據實際的數據庫來採用具體的主键生成策略-->
             <generator class="native"/>
         </id>
         <!--其他普通的行用property來描述-->
-        <property name="orderNo" type="string" column="order_no"/>
-        <property name="orderMoney" type="int" column="order_money"/>
-        <!--建立多對一的關係-->
-        <many-to-one name="user" class="User" column="user_id"></many-to-one>
+        <property name="name"/>
+        <!--建立多對多的關係-->
+        <set name="teachers" table="t_teacher_classes" cascade="save-update">
+            <!--設置當前表在關係表的外鍵-->
+            <key column="classes_id"></key>
+            <!--設置多對多的關係 設置對方的外鍵-->
+            <many-to-many column="teacher_id" class="Teacher"></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

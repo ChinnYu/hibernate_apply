@@ -1,6 +1,7 @@
 package com.cyl.model;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author : Liu
@@ -13,6 +14,15 @@ public class User {
     private String username;
     private String password;
     private Date birthday;
+    private Set<Order> orders;
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
 
     public int getId() {
         return id;

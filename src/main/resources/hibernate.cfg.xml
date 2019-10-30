@@ -35,6 +35,8 @@
 
         <mapping resource="com/cyl/model/User.hbm.xml"/>
         <mapping resource="com/cyl/model/Order.hbm.xml"/>
+        <mapping resource="com/cyl/model/Teacher.hbm.xml"/>
+        <mapping resource="com/cyl/model/Classes.hbm.xml"/>
 
     </session-factory>
 
