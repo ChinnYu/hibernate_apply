@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.cyl.model">
-    <class name="Teacher" table="t_teacher">
+    <class name="Teacher" table="t_teacher" lazy="false">
         <!--主鍵用id標籤來描述-->
         <id name="id" column="id">
             <!--native 會根據實際的數據庫來採用具體的主键生成策略-->
@@ -13,7 +13,7 @@
         <!--其他普通的行用property來描述-->
         <property name="name"/>
         <!--建立多對多的關係-->
-        <set name="classesSet" table="t_teacher_classes" inverse="true" cascade="save-update,delete">
+        <set name="classesSet" table="t_teacher_classes" inverse="true" cascade="save-update,delete" batch-size="5">
             <!--設置當前表在關係表的外鍵-->
             <key column="teacher_id"></key>
             <!--設置多對多的關係 設置對方的外鍵-->

@@ -30,7 +30,7 @@
         <!--顯示更好看的sql-->
         <property name="format_sql">true</property>
 
-        <!-- Drop and re-create the database schema on startup 自動建表 如migrate-->
+        <!-- Drop and re-create the database schema on startup 自動建表 如migrate 外鍵-->
         <property name="hbm2ddl.auto">update</property>
 
         <mapping resource="com/cyl/model/User.hbm.xml"/>
