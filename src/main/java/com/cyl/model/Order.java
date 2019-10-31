@@ -45,4 +45,14 @@ public class Order {
     public void setOrderMoney(int orderMoney) {
         this.orderMoney = orderMoney;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderNo='" + orderNo + '\'' +
+                ", orderMoney=" + orderMoney +
+                ", user=" + user +
+                '}';
+    }
 }

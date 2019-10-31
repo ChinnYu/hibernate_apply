@@ -19,5 +19,13 @@
             <!--設置多對多的關係 設置對方的外鍵-->
             <many-to-many column="classes_id" class="Classes"></many-to-many>
         </set>
+        <!--局部寫法-->
+        <query name="listTeacher">
+            <![CDATA[from Teacher where id < 3]]>
+        </query>
     </class>
+    <!--局部寫法-->
+    <query name="wholeListTeacher">
+        from Teacher
+    </query>
 </hibernate-mapping>
