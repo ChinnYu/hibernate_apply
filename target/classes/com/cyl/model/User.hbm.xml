@@ -4,12 +4,14 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.cyl.model">
-    <class name="User" table="t_user">
+    <!--optimistic-lock="version" 樂觀鎖的方法是採用版本號的方案-->
+    <class name="User" table="t_user" optimistic-lock="version">
         <!--主鍵用id標籤來描述-->
         <id name="id" column="id">
             <!--native 會根據實際的數據庫來採用具體的主键生成策略-->
             <generator class="native"/>
         </id>
+        <version name="version"></version>
         <!--其他普通的行用property來描述-->
         <!--1.簡化,名稱相同,可以不寫-->
         <property name="birthday" type="timestamp"/>

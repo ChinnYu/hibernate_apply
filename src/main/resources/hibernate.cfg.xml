@@ -31,6 +31,16 @@
         <!--開啟查詢緩存-->
         <property name="hibernate.cache.use_query_cache">true</property>
 
+        <!--c3p0的配置-->
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <!--關於c3p0的詳細配置-->
+        <property name="hibernate.c3p0.max_size">200</property>
+        <property name="hibernate.c3p0.min_size">10</property>
+        <property name="hibernate.c3p0.timeout">5000</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">10</property>
+        <property name="hibernate.c3p0.validate">true</property>
+
         <!-- Echo all executed SQL to stdout 顯示sql-->
         <property name="show_sql">true</property>
         <!--顯示更好看的sql-->
