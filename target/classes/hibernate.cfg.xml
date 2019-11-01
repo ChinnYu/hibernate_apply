@@ -22,8 +22,14 @@
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
 
-        <!-- Disable the second-level cache  緩存-->
-        <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
+        <!--開啟二級緩存-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!-- 配置二級緩存的提供商-->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!--開啟查詢緩存-->
+        <property name="hibernate.cache.use_query_cache">true</property>
 
         <!-- Echo all executed SQL to stdout 顯示sql-->
         <property name="show_sql">true</property>
@@ -38,6 +44,12 @@
         <mapping resource="com/cyl/model/Teacher.hbm.xml"/>
         <mapping resource="com/cyl/model/Classes.hbm.xml"/>
 
+        <!--配置要緩存的內容-->
+        <!--類級別的-->
+        <class-cache class="com.cyl.model.Teacher" usage="read-write"/>
+        <class-cache class="com.cyl.model.Classes" usage="read-write"/>
+        <!--集合級別-->
+        <collection-cache collection="com.cyl.model.Classes.teachers" usage="read-write"/>
     </session-factory>
 
 </hibernate-configuration>
